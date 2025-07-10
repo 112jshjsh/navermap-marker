@@ -94,7 +94,7 @@ export default function NaverMap({ height }: Props) {
         </div>
         
         {/* 지도 표시 */}
-        <div id="map" style={{ width: "100%", height: `{height}px` }}></div>
+        <div id="map" style={{ width: "100%", height: `${height}px` }}></div>
         </div>
     );
 }
