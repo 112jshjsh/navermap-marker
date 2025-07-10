@@ -5,6 +5,6 @@ import NaverMap from "./component";
 
 export default function Home() {
   return (
-    <NaverMap height={500} />
+    <NaverMap height={660} />
   );
 }

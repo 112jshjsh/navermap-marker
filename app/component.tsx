@@ -16,7 +16,7 @@ export default function NaverMap({ height }: Props) {
 
             const mapOptions = {
                 center: initialLocation,
-                zoom: 16,
+                zoom: 17,
                 zoomControl: true,
                 zoomControlOptions: {
                 position: (window as any).naver.maps.Position.TOP_RIGHT,
@@ -94,7 +94,7 @@ export default function NaverMap({ height }: Props) {
         </div>
         
         {/* 지도 표시 */}
-        <div id="map" style={{ width: "100%", height: `${height}px` }}></div>
+        <div id="map" style={{ width: "100%", height: `{height}px` }}></div>
         </div>
     );
 }
