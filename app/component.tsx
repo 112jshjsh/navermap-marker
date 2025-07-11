@@ -38,7 +38,7 @@ export default function NaverMap({ height }: Props) {
             });
 
             const infowindowtext = [
-                '<div style="padding:5px; text-align: center; ">',
+                '<div style="padding:5px; text-align: center; color: black;">',
                 `   <p style="font-size: 14px; font-weight: bold; margin: 0;">${process.env.NEXT_PUBLIC_LOCATION_NAME}</p>`,
                 `   <p style="font-size: 11px; margin: 0;">${process.env.NEXT_PUBLIC_LOCATION_ADDRESS}</p>`,
                 `   <p style="font-size: 11px; margin: 0;">${process.env.NEXT_PUBLIC_LOCATION_DETAIL}</p>`,
@@ -54,7 +54,6 @@ export default function NaverMap({ height }: Props) {
                 borderWidth: 1,
                 disableAnchor: true, 
                 textAlign: "center",
-                textColor: "black",
                 margin: "auto",
 
                 pixelOffset: new (window as any).naver.maps.Point(0, -5)
