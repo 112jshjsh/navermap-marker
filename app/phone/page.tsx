@@ -6,6 +6,6 @@ const NaverMap = dynamic(() => import("../component"), {
 
 export default function PhoneHome() {
     return (
-        <NaverMap height={300} />
+        <NaverMap height={298} />
     );
 }
