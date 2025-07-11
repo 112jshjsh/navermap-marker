@@ -52,8 +52,9 @@ export default function NaverMap({ height }: Props) {
                 backgroundColor: "white",
                 borderColor: "black",
                 borderWidth: 1,
-                disableAnchor: true,
+                disableAnchor: true, 
                 textAlign: "center",
+                textColor: "black",
                 margin: "auto",
 
                 pixelOffset: new (window as any).naver.maps.Point(0, -5)
