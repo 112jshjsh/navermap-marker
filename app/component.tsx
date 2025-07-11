@@ -16,7 +16,7 @@ export default function NaverMap({ height }: Props) {
 
             const mapOptions = {
                 center: initialLocation,
-                zoom: 17,
+                zoom: 16,
                 zoomControl: true,
                 zoomControlOptions: {
                 position: (window as any).naver.maps.Position.TOP_RIGHT,
