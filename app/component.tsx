@@ -39,7 +39,7 @@ export default function NaverMap({ height, language, companyName, companyAddress
                 position: initialLocation,
                 map: map,
                 icon: {
-                    url: 'marker_q.svg', // 마커 이미지 URL;
+                    url: '/marker_q.svg', // 마커 이미지 URL;
                     size: new (window as any).naver.maps.Size(30, 30),
                     origin: new (window as any).naver.maps.Point(0, 0),
                     anchor: new (window as any).naver.maps.Point(10, 26),
