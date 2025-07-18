@@ -4,15 +4,19 @@ import { useEffect } from "react";
 
 type Props= {
     height?: number;
+    language?: string;
+    companyName?: string;
+    companyAddress?: string;
+    companyDetail?: string;
 };
 
-export default function NaverMap({ height }: Props) {
+export default function NaverMap({ height, language, companyName, companyAddress, companyDetail }: Props) {
     useEffect(() => {
         const script = document.createElement("script");
-        script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}`;
+        script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}${language}`;
         script.async = true;
         script.onload = () => {
-            const initialLocation = new (window as any).naver.maps.LatLng(process.env.NEXT_PUBLIC_X_VALUE, process.env.NEXT_PUBLIC_Y_VALUE);
+            const initialLocation = new (window as any).naver.mnaaps.LatLng(process.env.NEXT_PUBLIC_X_VALUE, process.env.NEXT_PUBLIC_Y_VALUE);
 
             const mapOptions = {
                 center: initialLocation,
@@ -39,9 +43,9 @@ export default function NaverMap({ height }: Props) {
 
             const infowindowtext = [
                 '<div style="padding:5px; text-align: center; color: black;">',
-                `   <p style="font-size: 14px; font-weight: bold; margin: 0;">${process.env.NEXT_PUBLIC_LOCATION_NAME}</p>`,
-                `   <p style="font-size: 11px; margin: 0;">${process.env.NEXT_PUBLIC_LOCATION_ADDRESS}</p>`,
-                `   <p style="font-size: 11px; margin: 0;">${process.env.NEXT_PUBLIC_LOCATION_DETAIL}</p>`,
+                `   <p style="font-size: 14px; font-weight: bold; margin: 0;">${companyName}</p>`,
+                `   <p style="font-size: 11px; margin: 0;">${companyAddress}</p>`,
+                `   <p style="font-size: 11px; margin: 0;">${companyDetail}</p>`,
                 '</div>'
             ].join('');
 
