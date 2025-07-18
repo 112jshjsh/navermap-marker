@@ -26,12 +26,10 @@ export default function NaverMap({ height, language, companyName, companyAddress
                 minZoom: 10,
                 zoomControl: true,
                 zoomControlOptions: {
-                position: (window as any).naver.maps.Position.TOP_LEFT,
-                style: (window as any).naver.maps.ZoomControlStyle.SMALL,
-                
+                    position: (window as any).naver.maps.Position.TOP_LEFT,
+                    style: (window as any).naver.maps.ZoomControlStyle.SMALL,
                 },
                 gl: true,
-                
                 customStyleId: "4a331c05-5095-4b25-a1d9-8ae793e72b42",
             };
 
@@ -40,12 +38,18 @@ export default function NaverMap({ height, language, companyName, companyAddress
             const marker = new (window as any).naver.maps.Marker({
                 position: initialLocation,
                 map: map,
+                icon: {
+                    url: 'marker_q.svg', // 마커 이미지 URL;
+                    size: new (window as any).naver.maps.Size(30, 30),
+                    origin: new (window as any).naver.maps.Point(0, 0),
+                    anchor: new (window as any).naver.maps.Point(10, 26),
+                }
             });
 
             const resetBtn = document.getElementById("resetButton");
             resetBtn?.addEventListener("click", () => {
                 map.setCenter(initialLocation);
-                map.setZoom(16);
+                map.setZoom(16); 
             });
 
             const infowindowtext = [
