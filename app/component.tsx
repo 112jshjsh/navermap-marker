@@ -4,14 +4,13 @@ import { useEffect } from "react";
 import { RotateCcw } from "lucide-react";
 
 type Props= {
-    height?: number;
     language?: string;
     companyName?: string;
     companyAddress?: string;
     companyDetail?: string;
 };
 
-export default function NaverMap({ height, language, companyName, companyAddress, companyDetail }: Props) {
+export default function NaverMap({ language, companyName, companyAddress, companyDetail }: Props) {
     useEffect(() => {
         const script = document.createElement("script");
         script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}${language}`;
@@ -75,11 +74,11 @@ export default function NaverMap({ height, language, companyName, companyAddress
             });
 
             (window as any).naver.maps.Event.addListener(marker, "click", function() {
-                        if (infowindow.getMap()) {
-                            infowindow.close();
-                        } else {
-                            infowindow.open(map, marker);
-                        }
+                if (infowindow.getMap()) {
+                    infowindow.close();
+                } else {
+                    infowindow.open(map, marker);
+                }
             });
 
             infowindow.open(map, marker);
@@ -90,28 +89,28 @@ export default function NaverMap({ height, language, companyName, companyAddress
     }, []);
 
     return (
-        <div>
+        <div style={{ width: "100%", height: "100vh", position: "relative" }}>
         {/* 지도 위치 초기화 버튼 */}
-        <div
-            id="resetButton"
-            style={{
-                position: "absolute",
-                top: 75,
-                left: 10,
-                zIndex: 100,
-                backgroundColor: "white",
-                padding: "5px 5px",
-                border: "1px solid",
-                borderRadius: "1px",
-                cursor: "pointer",
-                // boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-            }}
-            >
-            <RotateCcw size={18} color="#707070ff" strokeWidth={3}/>
-        </div>
-        
-        {/* 지도 표시 */}
-        <div id="map" style={{ width: "100%", height: `${height}px` }}></div>
+            <div
+                id="resetButton"
+                style={{
+                    position: "absolute",
+                    top: 75,
+                    left: 10,
+                    zIndex: 100,
+                    backgroundColor: "white",
+                    padding: "5px 5px",
+                    border: "1px solid",
+                    borderRadius: "1px",
+                    cursor: "pointer",
+                    // boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                }}
+                >
+                <RotateCcw size={18} color="#707070ff" strokeWidth={3}/>
+            </div>
+            
+            {/* 지도 표시 */}
+            <div id="map" style={{ width: "100%", height: "100%" }}></div>
         </div>
     );
 }

@@ -7,7 +7,6 @@ const NaverMap = dynamic(() => import("../../component"), {
 export default function PhoneHome() {
     return (
         <NaverMap 
-            height={298} 
             language="&language=en"
             companyName={process.env.NEXT_PUBLIC_LOCATION_NAME_ENG}
             companyAddress={process.env.NEXT_PUBLIC_LOCATION_ADDRESS_ENG}
