@@ -15,15 +15,13 @@ export default function NaverMap({ language, companyName, companyAddress, compan
     useEffect(() => {
         const fetchNaverMapScript = async () => {
             try {
-                // 3. 서버 API를 호출하여 안전하게 API 키를 가져옵니다.
                 const response = await fetch('/api');
                 if (!response.ok) {
                     throw new Error('Failed to fetch Naver Map API key');
                 }
                 const data = await response.json();
-                const ncpKeyId = data.keyId; // 서버에서 받은 API 키
-
-                // API 키를 포함하여 스크립트를 동적으로 생성합니다.
+                const ncpKeyId = data.keyId;
+                
                 const script = document.createElement("script");
                 script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${ncpKeyId}${language}`;
                 script.async = true;
@@ -128,7 +126,6 @@ export default function NaverMap({ language, companyName, companyAddress, compan
                 <RotateCcw size={18} color="#707070ff" strokeWidth={3}/>
             </div>
             
-            {/* 지도 표시 */}
             <div id="map" style={{ width: "100%", height: "100%" }}></div>
         </div>
     );
