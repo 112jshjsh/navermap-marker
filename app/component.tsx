@@ -29,7 +29,7 @@ export default function NaverMap({ language, companyName, companyAddress, compan
                     style: (window as any).naver.maps.ZoomControlStyle.SMALL,
                 },
                 gl: true,
-                customStyleId: "4a331c05-5095-4b25-a1d9-8ae793e72b42",
+                customStyleId: '94230366-adba-4e0e-ac5a-e82a0e137b5e',
             };
 
             const map = new (window as any).naver.maps.Map("map", mapOptions);
